@@ -50,10 +50,8 @@ const game = () => {
 
     console.log(playRound(playerChoice, computerChoice));
   }
-  
-  if (playerChoice === null || playerChoice === '') {
-      playerChoice = 'CANCELED';
-  } else if (playerScore === compScore) {
+
+  if (playerScore === compScore) {
     return `FINAL SCORE: You tied ${playerScore}-${compScore}!`;
   } else if (playerScore > compScore) {
     return `FINAL SCORE:You won ${playerScore}-${compScore}!`;
