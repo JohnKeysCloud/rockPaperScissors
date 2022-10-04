@@ -54,7 +54,7 @@ const game = () => {
   if (playerScore === compScore) {
     return `FINAL SCORE: You tied ${playerScore}-${compScore}!`;
   } else if (playerScore > compScore) {
-    return `FINAL SCORE:You won ${playerScore}-${compScore}!`;
+    return `FINAL SCORE: You won ${playerScore}-${compScore}!`;
   } else if (playerScore < compScore) {
     return `FINAL SCORE: You lost ${playerScore}-${compScore}!`;
   } else {
