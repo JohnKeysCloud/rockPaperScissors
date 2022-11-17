@@ -1,15 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>rockPaperScissors</title>
   <link rel="stylesheet" href="css/styles.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <script defer src="javascript/script.js"></script>
 </head>
 
-<body> 
+<body>
+	<div id="wrapper">
+		<main>
+			<header>
+				<div id="title">
+					<h1 id="title-text">rockPaperScissors</h1>
+					<h3 id="title-text-jp" class="i-love-japan">じゃん拳</h3>
+				</div>
+				<button id="refresh-btn">
+					<img src="assets/images/refresh.svg" alt="Refresh"/>
+				</button>
+			</header>
+			<section id="result">
+				<p id="output">
+					The <a href="https://www.johnkeys.cloud/" target="_blank" rel="noopener noreferrer"><img id="cyclone" class="no-select" src="assets/images/logo-cyclone.webp" alt="C"/></a>hoice is yours…
+				</p>
+				<p id="result-text-jp" class="i-love-japan">
+					選択はあなた次第です
+				</p>
+				<p id="instructions">First to 5 Wins!</p>
+				<h3 id="round-elem">Round #<span id="round-output"></span></h3>
+			</section>
+			<section id="choices">
+				<div class="choice">
+					<button id="0" class="choice-button" value="Rock">
+						<img src="assets/images/rock.svg" alt="Rock"/>
+					</button>
+					<label for="0">Rock</label>
+				</div>
+				<div class="choice">
+					<button id="1"  class="choice-button" value="Paper">
+						<img src="assets/images/paper.svg" alt="Paper"/>
+					</button>
+					<label for="1">Paper</label>
+				</div>
+				<div class="choice">
+					<button id="2" class="choice-button" value="Scissors">
+						<img src="assets/images/scissors.svg" alt="Scissors"/>
+					</button>
+					<label for="2">Scissors</label>
+				</div>
+			</section>
+			<section id="scores">
+				<table>
+					<tr>
+						<th id="player-name">Player</th>
+						<th id="computer-name">Computer</th>
+					</tr>
+					<tr>
+						<td id="player-score">
+							<span class="score-num">0</span>
+						</td>
+						<td id="computer-score">
+							<span class="score-num">0</span>
+						</td>
+					</tr>
+				</table>
+			</section>
+		</main>
+	</div>
+	
+  <footer>
+    <div id="footer-center">
+      <p>
+          © 2022 Cyclone Studios™. All Rights Reserved
+      </p>
+    </div>
 
+    <div id="cyclone-container">
+      <p>powered by:</p>
+      <img src="assets/images/logo-cycloneStudios.png" alt="Cyclone Studios">
+    </div>
+  </footer>
+	
+	<audio id="choice-sound" src="assets/sounds/choice.mp3"></audio>
+	<audio id="atmosphere-sound" src="assets/sounds/atmosphere.mp3" loop="loop"></audio>
+	<audio id="player-win-sound" src="assets/sounds/player-win.mp3"></audio>
+	<audio id="computer-win-sound" src="assets/sounds/player-lose.mp3"></audio>
+	<audio id="game-restart-sound" src="assets/sounds/game-restart.mp3"></audio>
 </body>
+
 </html>
