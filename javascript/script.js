@@ -5,8 +5,9 @@ const choices = document.querySelectorAll('.choice-button');
 const playerScoreOutput = document.getElementById('player-score');
 const computerScoreOutput = document.getElementById('computer-score');
 const scores = document.querySelectorAll('.score-num');
-const choiceSound = document.getElementById('choice-sound');
-const atmosphereSound = document.getElementById('atmosphere-sound');
+const tieSound = document.getElementById('tie-sound');
+const playerPointSound = document.getElementById('player-point');
+const computerPointSound = document.getElementById('computer-point');
 const playerWinSound = document.getElementById('player-win-sound');
 const computerWinSound = document.getElementById('computer-win-sound');
 const gameRestartSound = document.getElementById('game-restart-sound');
@@ -100,8 +101,7 @@ function playRound(e) {
   let roundWinCombo = `${playerValue}-${computerChoice.value}`;
   let playerWinCombo = ['0-2', '1-0', '2-1'];
   
-  choiceSound.currentTime = 0;
-  choiceSound.play();
+
   
   let choiceBtn = document.querySelectorAll('.choice-button');
   choiceBtn.forEach(choice => {
@@ -122,19 +122,30 @@ function playRound(e) {
 
   if (+playerValue === computerChoice.value) {
     gameUpdates.textContent = `You both chose ${playerChoice.toLowerCase()}!`;
+    tieSound.currentTime = 0;
+    tieSound.play();
   } else if (playerWinCombo.includes(roundWinCombo)) {
     scores[0].textContent = `${++playerScore}`;
     scores[0].classList.add('hvr-pop');
     scores[0].addEventListener('animationend', (e) => e.target.classList.remove('hvr-pop'));
     gameUpdates.textContent = ` You win, ${playerChoice.toLowerCase()} beats ${computerChoice.choice.toLowerCase()}!`;
+
+    playerPointSound.currentTime = 0;
+    playerPointSound.play();
   } else {
     scores[1].textContent = `${++computerScore}`;
     scores[1].classList.add('hvr-pop');
     scores[1].addEventListener('animationend', (e) => e.target.classList.remove('hvr-pop'));
     gameUpdates.textContent = ` You lose, ${computerChoice.choice.toLowerCase()} beats ${playerChoice.toLowerCase()}!`;
+    
+    computerPointSound.currentTime = 0;
+    computerPointSound.play();
   }
 
+
   roundOutput.textContent = ++round;
+  gameUpdates.classList.add('updateAnimation');
+  gameUpdates.addEventListener('animationend', () => gameUpdates.classList.remove('updateAnimation'));
   roundElem.style.animation = 'blink 380ms ease-in-out';
   roundElem.addEventListener('animationend', () => roundElem.style.removeProperty('animation'));
   
