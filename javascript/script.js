@@ -100,9 +100,7 @@ function playRound(e) {
   
   let roundWinCombo = `${playerValue}-${computerChoice.value}`;
   let playerWinCombo = ['0-2', '1-0', '2-1'];
-  
 
-  
   let choiceBtn = document.querySelectorAll('.choice-button');
   choiceBtn.forEach(choice => {
     if (computerChoice.value !== +choice.id) return;
@@ -141,7 +139,6 @@ function playRound(e) {
     computerPointSound.currentTime = 0;
     computerPointSound.play();
   }
-
 
   roundOutput.textContent = ++round;
   gameUpdates.classList.add('updateAnimation');
