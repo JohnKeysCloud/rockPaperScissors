@@ -1,6 +1,6 @@
 # rockPaperScissors
 <img width="965" alt="Screen Shot 2022-11-18 at 6 51 20 AM" src="https://user-images.githubusercontent.com/90482169/202699133-aa820f62-adee-4503-9f27-6a91c9bb6a57.png">
-A simple game of Rock, Paper, Scissors I designed and programmed using vanilla HTML, CSS & JavaScript for <a href="https://www.google.com/](https://www.theodinproject.com/lessons/foundations-rock-paper-scissors" target="_blank">The Odin Project</a>.
+A simple game of Rock, Paper, Scissors I designed and programmed using vanilla HTML, CSS & JavaScript for <a href="https://www.theodinproject.com/lessons/foundations-rock-paper-scissors" target="_blank">The Odin Project</a>.
 
 ## Tools
 * VS Code
