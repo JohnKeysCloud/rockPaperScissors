@@ -13,29 +13,16 @@ const gameRestartSound = document.getElementById('game-restart-sound');
 const roundElem = document.getElementById('round-elem');
 const niHonGoGaHaNaSeMaSu = document.getElementById('result-text-jp');
 const instructions = document.getElementById('instructions');
+const choicesParent = document.getElementById("choices");
 
 let round = 1;
 let playerScore = 0;
 let computerScore = 0;
 let computerChoices = [{ choice: 'Rock', value: 0 }, { choice: 'Paper', value: 1 }, { choice: 'scissors', value: 2 }];
 
-window.onload = gameRestartSound.play();
+window.onload = gameRestartSound.play();  
 
-const choicesParent = document.getElementById('choices');
-choicesParent.addEventListener('mousemove', (e) => {
-  let iLoveJapan = document.getElementsByClassName('i-love-japan');
-
-  for (let i = 0; i < iLoveJapan.length; ++i) {
-    iLoveJapan[i].style.color = `rgb(${e.offsetX}, ${e.offsetY}, 155)`;
-    iLoveJapan[i].style.textShadow = `0 0 10px rgb(${e.offsetX}, ${e.offsetY}, 155)`;
-  }  
-});
-
-function getComputerChoice() {
-  return computerChoices[Math.floor(Math.random() * computerChoices.length)];
-}
-
-let updateWinner = () => {
+function updateWinner() {
   if (playerScore === 5) {
     playerWinSound.play();
     niHonGoGaHaNaSeMaSu.textContent = 'あなたは勝つのだ ٩(｡•́‿•̀｡)۶';
@@ -55,9 +42,11 @@ let updateWinner = () => {
   
 function checkWinner() {
   if (playerScore === 5 || computerScore === 5) {
-    updateWinner();
-
-    let labels = document.querySelectorAll('label');
+    
+    let labels = document.querySelectorAll("label");
+    for (let i = 0; i < labels.length; ++i) {
+      labels[i].style.visibility = "hidden";
+    }
 
     roundElem.textContent = 'GAME OVER';
     roundElem.classList.add('game-over');
@@ -70,10 +59,8 @@ function checkWinner() {
     });
 
     instructions.style.visibility = "hidden";
-
-    for (let i = 0; i < labels.length; ++i) {
-      labels[i].style.visibility = 'hidden';
-    }
+    
+    updateWinner();
   }
 } 
 
@@ -101,6 +88,10 @@ function updateScoreColor() {
   }
 }
 
+function getComputerChoice() {
+  return computerChoices[Math.floor(Math.random() * computerChoices.length)];
+}
+
 function playRound(e) {
   let computerChoice = getComputerChoice(e);
   let playerValue = e.target.id;
@@ -108,9 +99,26 @@ function playRound(e) {
   
   let roundWinCombo = `${playerValue}-${computerChoice.value}`;
   let playerWinCombo = ['0-2', '1-0', '2-1'];
-
+  
   choiceSound.currentTime = 0;
   choiceSound.play();
+  
+  let choiceBtn = document.querySelectorAll('.choice-button');
+  choiceBtn.forEach(choice => {
+    if (computerChoice.value !== +choice.id) return;
+      
+    if (computerChoice.choice.toLowerCase() === playerChoice.toLowerCase()) {
+      choice.firstElementChild.classList.add("cpu-vis-feedback-tie");
+      choice.firstElementChild.addEventListener("animationend", () =>
+        choice.firstElementChild.classList.remove("cpu-vis-feedback-tie")
+      );
+    } else {
+      choice.firstElementChild.classList.add("cpu-vis-feedback-dif");
+      choice.firstElementChild.addEventListener("animationend", () =>
+        choice.firstElementChild.classList.remove("cpu-vis-feedback-dif")
+      );
+    }
+  });
 
   if (+playerValue === computerChoice.value) {
     gameUpdates.textContent = `You both chose ${playerChoice.toLowerCase()}!`;
@@ -126,14 +134,26 @@ function playRound(e) {
     gameUpdates.textContent = ` You lose, ${computerChoice.choice.toLowerCase()} beats ${playerChoice.toLowerCase()}!`;
   }
 
-  updateScoreColor();
   roundOutput.textContent = ++round;
   roundElem.style.animation = 'blink 380ms ease-in-out';
   roundElem.addEventListener('animationend', () => roundElem.style.removeProperty('animation'));
-
+  
+  updateScoreColor();
   checkWinner();
 }
 
+function jpTextColorChange(e) {
+  let iLoveJapan = document.getElementsByClassName("i-love-japan");
+
+  for (let i = 0; i < iLoveJapan.length; ++i) {
+    iLoveJapan[i].style.color = `rgb(${e.offsetX}, ${e.offsetY}, 155)`;
+    iLoveJapan[
+      i
+    ].style.textShadow = `0 0 10px rgb(${e.offsetX}, ${e.offsetY}, 155)`;
+  }
+}
+
+choicesParent.addEventListener("mousemove", jpTextColorChange);
 choices.forEach(choice => choice.addEventListener('click', playRound));
 refreshButton.addEventListener('click', () => window.location.reload());
 roundOutput.textContent = 1;
