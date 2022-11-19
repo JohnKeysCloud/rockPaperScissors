@@ -6,9 +6,9 @@ A simple game of Rock, Paper, Scissors I designed and programmed using vanilla H
 
 ### Notes
 
-I had a lot of fun writing this (except for that one time I was exhausted and wanted to finish writing this one function in the script but my brain woudn't allow me to (I spent maybe an **HOUR** trying at that point)… so instead of taking a nap, I had a cup of **ocha** (green tea in Japanese) and stood outside in 34 degree NYC weather in a t-shirt for a few minutes, came back, and knocked it out within probably 5 minutes 🥊😎. Ironically, it's my favorite snippet of the project… see below 😅. The snippet determines which animation to run depending on whether or not the player *and* bot made the same choice in the round (e.g., if you tie the image of the computers choice moves up the window a few pixels… *then* spins 360deg… then comes back down versus it just spinning 360deg otherwise). Anyway, I hope you like it lol, k thanks bye ✌🏽😎
+I had a lot of fun writing this (except for that one time I was exhausted and wanted to finish writing this one function in the script but my brain woudn't allow me to (I spent maybe an **HOUR** trying at that point)… so instead of taking a nap, I had a cup of **ocha** (green tea in Japanese) and stood outside in 34 degree NYC weather in a t-shirt for a few minutes, came back, and knocked it out within probably 5 minutes 🥊😎. Ironically, it's my favorite snippet of the project… see below 😅. The snippet determines which animation to run depending on whether or not the player *and* bot made the same choice in the round (e.g., if you tie the image of the computers choice moves up the window a few pixels… *then* spins 360deg… then comes back down versus it just spinning 360deg otherwise). Anyway, I hope you like it lol, k thanks bye ✌🏽
 
-### - ツkc
+### - ツkc💭
 
 ## Tools
 * VS Code
