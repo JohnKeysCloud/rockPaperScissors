@@ -1,20 +1,20 @@
-const refreshButton = document.getElementById('refresh-btn');
-const roundOutput = document.getElementById('round-output');
-const gameUpdates = document.getElementById('output');
 const choices = document.querySelectorAll('.choice-button');
-const playerScoreOutput = document.getElementById('player-score');
+const choicesParent = document.getElementById('choices');
 const computerScoreOutput = document.getElementById('computer-score');
-const scores = document.querySelectorAll('.score-num');
-const tieSound = document.getElementById('tie-sound');
-const playerPointSound = document.getElementById('player-point');
 const computerPointSound = document.getElementById('computer-point');
-const playerWinSound = document.getElementById('player-win-sound');
 const computerWinSound = document.getElementById('computer-win-sound');
 const gameRestartSound = document.getElementById('game-restart-sound');
-const roundElem = document.getElementById('round-elem');
-const niHonGoGaHaNaSeMaSu = document.getElementById('result-text-jp');
+const gameUpdates = document.getElementById('output');
 const instructions = document.getElementById('instructions');
-const choicesParent = document.getElementById("choices");
+const niHonGoGaHaNaSeMaSu = document.getElementById('result-text-jp');
+const playerPointSound = document.getElementById('player-point');
+const playerScoreOutput = document.getElementById('player-score');
+const playerWinSound = document.getElementById('player-win-sound');
+const refreshButton = document.getElementById('refresh-btn');
+const roundElem = document.getElementById('round-elem');
+const roundOutput = document.getElementById('round-output');
+const scores = document.querySelectorAll('.score-num');
+const tieSound = document.getElementById('tie-sound');
 
 let round = 1;
 let playerScore = 0;
@@ -44,9 +44,9 @@ function updateWinner() {
 function checkWinner() {
   if (playerScore === 5 || computerScore === 5) {
     
-    let labels = document.querySelectorAll("label");
+    let labels = document.querySelectorAll('label');
     for (let i = 0; i < labels.length; ++i) {
-      labels[i].style.visibility = "hidden";
+      labels[i].style.visibility = 'hidden';
     }
 
     roundElem.textContent = 'GAME OVER';
@@ -59,7 +59,7 @@ function checkWinner() {
       choice.removeEventListener('click', playRound);
     });
 
-    instructions.style.visibility = "hidden";
+    instructions.style.visibility = 'hidden';
     
     updateWinner();
   }
@@ -106,14 +106,14 @@ function playRound(e) {
     if (computerChoice.value !== +choice.id) return;
       
     if (computerChoice.choice.toLowerCase() === playerChoice.toLowerCase()) {
-      choice.firstElementChild.classList.add("cpu-vis-feedback-tie");
-      choice.firstElementChild.addEventListener("animationend", () =>
-        choice.firstElementChild.classList.remove("cpu-vis-feedback-tie")
+      choice.firstElementChild.classList.add('cpu-vis-feedback-tie');
+      choice.firstElementChild.addEventListener('animationend', () =>
+        choice.firstElementChild.classList.remove('cpu-vis-feedback-tie')
       );
     } else {
-      choice.firstElementChild.classList.add("cpu-vis-feedback-dif");
-      choice.firstElementChild.addEventListener("animationend", () =>
-        choice.firstElementChild.classList.remove("cpu-vis-feedback-dif")
+      choice.firstElementChild.classList.add('cpu-vis-feedback-dif');
+      choice.firstElementChild.addEventListener('animationend', () =>
+        choice.firstElementChild.classList.remove('cpu-vis-feedback-dif')
       );
     }
   });
@@ -151,7 +151,7 @@ function playRound(e) {
 }
 
 function jpTextColorChange(e) {
-  let iLoveJapan = document.getElementsByClassName("i-love-japan");
+  let iLoveJapan = document.getElementsByClassName('i-love-japan');
 
   for (let i = 0; i < iLoveJapan.length; ++i) {
     iLoveJapan[i].style.color = `rgb(${e.offsetX}, ${e.offsetY}, 155)`;
@@ -161,7 +161,7 @@ function jpTextColorChange(e) {
   }
 }
 
-choicesParent.addEventListener("mousemove", jpTextColorChange);
+choicesParent.addEventListener('mousemove', jpTextColorChange);
 choices.forEach(choice => choice.addEventListener('click', playRound));
 refreshButton.addEventListener('click', () => window.location.reload());
 roundOutput.textContent = 1;
