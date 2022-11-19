@@ -19,6 +19,6 @@ A simple game of Rock, Paper, Scissors I designed and programmed using vanilla H
 ## cloudySnippets_1💭 (my favorite snippet from the project 🙃):
 ![cloudSnippets1](https://user-images.githubusercontent.com/90482169/202843102-b52debe7-2e26-449d-9466-c04f23d6cc8a.png)
 
-Anyway, I hope you like it, I had a lot of fun writing it ok? lol thanks bye ✌🏽😎
+Anyway, I hope you like it, I had a lot of fun writing it lol, k thanks bye ✌🏽😎
 
 ### - ツkc
