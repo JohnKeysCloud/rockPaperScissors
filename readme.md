@@ -25,5 +25,5 @@ Anyway… I hope you like it lol, k thanks bye ✌🏽
 * Used **Git** & **GitHub** for source control/project management. 
 * **Cross tested** design and functionality on desktop & mobile browsers.
 
-## cloudySnippets_1💭 (my favorite snippet from the project 🙃):
+## cloudySnippets💭
 ![cloudSnippets1](https://user-images.githubusercontent.com/90482169/202843102-b52debe7-2e26-449d-9466-c04f23d6cc8a.png)
