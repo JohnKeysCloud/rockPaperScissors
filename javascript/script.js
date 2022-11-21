@@ -29,14 +29,14 @@ function updateWinner() {
     niHonGoGaHaNaSeMaSu.textContent = 'あなたは勝つのだ ٩(｡•́‿•̀｡)۶';
     gameUpdates.textContent = 'YOU WIN! 🏆'
     gameUpdates.classList.add('game-over');
-    gameUpdates.style.color = 'chartreuse';
+    gameUpdates.style.color = 'var(--color-funky)';
     playerScoreOutput.classList.add('winner');
   } else {
     computerWinSound.play();
     niHonGoGaHaNaSeMaSu.textContent = 'お前の負けだ (っ˘̩╭╮˘̩)っ';
     gameUpdates.textContent = 'YOU LOSE! 😤';
     gameUpdates.classList.add('game-over');
-    gameUpdates.style.color = '#E91113';
+    gameUpdates.style.color = 'var(--color-blinky)';
     computerScoreOutput.classList.add('winner');
   }
 }
