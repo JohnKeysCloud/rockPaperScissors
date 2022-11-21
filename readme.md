@@ -1,6 +1,15 @@
 # rockPaperScissors
-<img width="965" alt="Screen Shot 2022-11-18 at 6 51 20 AM" src="https://user-images.githubusercontent.com/90482169/202699133-aa820f62-adee-4503-9f27-6a91c9bb6a57.png">
+[<img width="965" alt="Screen Shot 2022-11-18 at 6 51 20 AM" src="https://user-images.githubusercontent.com/90482169/202699133-aa820f62-adee-4503-9f27-6a91c9bb6a57.png">](https://johnkeyscloud.github.io/rockPaperScissors/)
+
+
 A simple game of Rock, Paper, Scissors I designed and programmed using vanilla HTML, CSS & JavaScript for <a href="https://www.theodinproject.com/lessons/foundations-rock-paper-scissors" target="_blank">The Odin Project</a>.
+
+### Notes
+
+I had a lot of fun writing this… though there was this one point in time I was *exhausted* and wanted to finish writing a particular **forEach()** function in the script but my brain woudn't allow me to. I spent over an hour messing with code, erasing eveything and starting over a few times. My mind went blank and everything else I had written looked foreign to me lol; However, instead of taking a nap… I said no! I made some **ocha** (green tea in Japanese) and stood outside in 34 degree NYC weather in a t-shirt for a few minutes, came back, and fortunately figured it out pretty quickly. The gratification was worth it, at last, I took a break 💔! It's my favorite code snippet from the project (see below 😅). The snippet determines which animation to run depending on whether or not the player *and* bot made the same choice in the round of the game. If any round results in a tie, the image of the computers choice is translated a few pixels upwards, rotated 360deg, then is translated back down. Otherwise the image would just be rotated, sin translation. 
+Anyway… I hope you like it lol, k thanks bye ✌🏽
+
+### - ツkc💭
 
 ## Tools
 * VS Code
@@ -16,5 +25,5 @@ A simple game of Rock, Paper, Scissors I designed and programmed using vanilla H
 * Used **Git** & **GitHub** for source control/project management. 
 * **Cross tested** design and functionality on desktop & mobile browsers.
 
-
-### - ツkc
+## cloudySnippets💭
+![cloudSnippets1](https://user-images.githubusercontent.com/90482169/202843102-b52debe7-2e26-449d-9466-c04f23d6cc8a.png)
