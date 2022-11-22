@@ -512,6 +512,47 @@
   }
 }
 
+@-webkit-keyframes win-scale {
+	from {
+		filter: drop-shadow(0 0 5px var(--color-funky));
+		opacity: 1;
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+	50% {
+		filter: drop-shadow(0 0 5px var(--color-funky));
+		opacity: 1;
+		-webkit-transform: scale(3);
+		transform: scale(3);
+	}
+	to {
+		filter: drop-shadow(0 0 5px var(--color-funky));
+		opacity: 1;
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+}
+@keyframes win-scale {
+	from {
+		filter: drop-shadow(0 0 5px var(--color-funky));
+		opacity: 1;
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+	50% {
+		filter: drop-shadow(0 0 5px var(--color-funky));
+		opacity: 1;
+		-webkit-transform: scale(3);
+		transform: scale(3);
+	}
+	to {
+		filter: drop-shadow(0 0 5px var(--color-funky));
+		opacity: 1;	
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+}
+
 @-webkit-keyframes opacity {
 	from {
 		opacity: 0;
@@ -857,6 +898,13 @@ header #refresh-btn:active,
 #choices button.tie-pseudo-filter:last-child::after {
 	-webkit-animation: tie-pseudo-filter 1s linear;
 	animation: tie-pseudo-filter 1s linear;
+}
+
+#choices button.win-scale-animation:first-child::after,
+#choices button.win-scale-animation:nth-child(2)::after,
+#choices button.win-scale-animation:last-child::after {
+	-webkit-animation: win-scale 0.75s ease-in-out;
+	animation: win-scale 0.75s ease-in-out;
 }
 
 #choices .choice label {

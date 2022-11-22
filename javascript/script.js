@@ -145,6 +145,13 @@ function playRound(e) {
 
     playerChoiceElem.firstElementChild.classList.add('player-win');
     playerChoiceElem.firstElementChild.addEventListener('animationend', () => playerChoiceElem.firstElementChild.classList.remove('player-win'));
+
+    choices.forEach(choice => {
+      if (choice.id === playerValue) {
+        choice.classList.add('win-scale-animation');
+        choice.addEventListener('animationend', () => choice.classList.remove('win-scale-animation'));
+      }
+    });
   
     playerPointSound.currentTime = 0;
     playerPointSound.play();
@@ -159,6 +166,14 @@ function playRound(e) {
 
     playerChoiceElem.firstElementChild.classList.add('player-lose');
     playerChoiceElem.firstElementChild.addEventListener('animationend', () => playerChoiceElem.firstElementChild.classList.remove('player-lose'));
+
+    choices.forEach(choice => {
+      if (+choice.id === computerChoice.value) {
+        console.log(+choice.id, computerChoice.value)
+        choice.classList.add('win-scale-animation');
+        choice.addEventListener('animationend', () => choice.classList.remove('win-scale-animation'));
+      }
+    });
 
     computerPointSound.currentTime = 0;
     computerPointSound.play();
