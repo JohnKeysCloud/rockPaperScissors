@@ -1,4 +1,5 @@
 const choices = document.querySelectorAll('.choice-button');
+const choicesImages = document.querySelectorAll(".choice-images");
 const choicesParent = document.getElementById('choices');
 const computerScoreOutput = document.getElementById('computer-score');
 const computerPointSound = document.getElementById('computer-point');
@@ -11,6 +12,7 @@ const playerPointSound = document.getElementById('player-point');
 const playerScoreOutput = document.getElementById('player-score');
 const playerWinSound = document.getElementById('player-win-sound');
 const refreshButton = document.getElementById('refresh-btn');
+const root = document.documentElement;
 const roundElem = document.getElementById('round-elem');
 const roundOutput = document.getElementById('round-output');
 const scores = document.querySelectorAll('.score-num');
@@ -95,14 +97,14 @@ function getComputerChoice() {
 
 function playRound(e) {
   let computerChoice = getComputerChoice(e);
-  let playerValue = e.target.id;
   let playerChoice = e.target.getAttribute('value');
+  let playerValue = e.target.id;
+  let playerChoiceElem = e.target;
   
   let roundWinCombo = `${playerValue}-${computerChoice.value}`;
   let playerWinCombo = ['0-2', '1-0', '2-1'];
 
-  let choiceBtn = document.querySelectorAll('.choice-button');
-  choiceBtn.forEach(choice => {
+  choices.forEach(choice => {
     if (computerChoice.value !== +choice.id) return;
       
     if (computerChoice.choice.toLowerCase() === playerChoice.toLowerCase()) {
@@ -120,22 +122,44 @@ function playRound(e) {
 
   if (+playerValue === computerChoice.value) {
     gameUpdates.textContent = `You both chose ${playerChoice.toLowerCase()}!`;
+
+    root.style.setProperty("--color-cpu-vis-feedback", "var(--color-filter-default)");
+
+    choices.forEach(choice => {
+      if (choice.id === playerValue) {
+        choice.classList.add('tie-pseudo-filter');
+        choice.addEventListener('animationend', () => choice.classList.remove('tie-pseudo-filter'));
+      }
+    });
+
     tieSound.currentTime = 0;
     tieSound.play();
+
   } else if (playerWinCombo.includes(roundWinCombo)) {
     scores[0].textContent = `${++playerScore}`;
     scores[0].classList.add('hvr-pop');
     scores[0].addEventListener('animationend', (e) => e.target.classList.remove('hvr-pop'));
     gameUpdates.textContent = ` You win, ${playerChoice.toLowerCase()} beats ${computerChoice.choice.toLowerCase()}!`;
+    
+    root.style.setProperty("--color-cpu-vis-feedback", "var(--color-blinky)");
 
+    playerChoiceElem.firstElementChild.classList.add('player-win');
+    playerChoiceElem.firstElementChild.addEventListener('animationend', () => playerChoiceElem.firstElementChild.classList.remove('player-win'));
+  
     playerPointSound.currentTime = 0;
     playerPointSound.play();
+    
   } else {
     scores[1].textContent = `${++computerScore}`;
     scores[1].classList.add('hvr-pop');
     scores[1].addEventListener('animationend', (e) => e.target.classList.remove('hvr-pop'));
     gameUpdates.textContent = ` You lose, ${computerChoice.choice.toLowerCase()} beats ${playerChoice.toLowerCase()}!`;
     
+    root.style.setProperty("--color-cpu-vis-feedback", "var(--color-funky)");
+
+    playerChoiceElem.firstElementChild.classList.add('player-lose');
+    playerChoiceElem.firstElementChild.addEventListener('animationend', () => playerChoiceElem.firstElementChild.classList.remove('player-lose'));
+
     computerPointSound.currentTime = 0;
     computerPointSound.play();
   }
