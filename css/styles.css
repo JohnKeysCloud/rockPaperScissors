@@ -656,8 +656,11 @@ body {
 }
 
 main {
-	display: grid;
-	place-items: center;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	min-height: 100vh;
 }
 
 section {
